@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>  
+
+    <h1>Movie EDITOR</h1>
+
+    <form action="/movies/update/<%=movie.id%>?_method=PUT" method="POST" >
+
+        <label for="title">movie title:</label>
+        <input type="text" name="title" value="<%=movie.title%>"><br>
+
+        <label for="rating">rating:</label>
+        <input type="text" name="rating" value="<%=movie.rating%>"><br>
+
+        <label for="awards">awards:</label>
+        <input type="text" name="awards" value="<%=movie.awards%>"><br>
+
+        <label for="length">Length:</label>
+        <input type="text" name="length" value="<%=movie.length%>"><br>
+        
+        <label for="release_date">release date:</label>
+        <input type="date" name="release_date" value="<%=movie.release_date%>" required><br>
+
+        <button type="submit">MODIFICAR</button>
+
+    </form>
+
+</body>
+</html>
