@@ -17,6 +17,12 @@
     <p>AWARDS: <%= movie.awards %> </p>
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <h5>ACTORS:</h5>
+    <ul>   
+        <% for (actor of movie.actors){ %>
+            <li><%=actor.first_name %> <%=actor.last_name %></li>
+        <% } %>
+    </ul>
 
     <a href="/movies/edit/<%=movie.id%>">
         <button>EDIT</button>
