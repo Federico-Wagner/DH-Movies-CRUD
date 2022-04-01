@@ -10,7 +10,7 @@ const moviesController = {
             })
     },
     'detail': (req, res) => {
-        db.Movie.findByPk(req.params.id,{include: ["actors"]})
+        db.Movie.findByPk(req.params.id,{include: ["actors","genero"]})
             .then(movie => {
                 //console.log(movie)
                 res.render('moviesDetail.ejs', {movie});
@@ -76,10 +76,17 @@ const moviesController = {
             })
     },
     'deletePUT': (req, res) => {
-        db.Movie.destroy({where:{id: req.params.id}})
-            .then(() => {
-                res.redirect('/movies')
-            })
+
+        
+        db.Movie.findByPk(req.params.id)
+            .then(function(Movie){
+                Movie.setActors([]) //borrando row de la tabla intermedia (movie-actors)
+
+                db.Movie.destroy({where:{id: req.params.id}}) //borra el row en movie
+                    .then(() => {
+                        res.redirect('/movies')
+            });
+        })
     }
 }
 

@@ -36,7 +36,11 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: "actor_id",
             timestamps: false
         })
+    
+        Movie.belongsTo(models.Genre,{
+            as: "genero",
+            foreignKey: "genre_id"
+        })
     }
-
     return Movie
 }

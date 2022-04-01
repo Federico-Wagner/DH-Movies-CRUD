@@ -17,6 +17,11 @@
     <p>AWARDS: <%= movie.awards %> </p>
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <br>
+    <% if ((movie.genre_id) !== null ){ %>
+        <p>GENERO : <%=movie.genero.name %></p>
+    <%}%>
+    <br>
     <h5>ACTORS:</h5>
     <ul>   
         <% for (actor of movie.actors){ %>
